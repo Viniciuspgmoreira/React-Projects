@@ -82,6 +82,7 @@ export default class UserCrud extends Component {
           onClickClear={(e) => this.clear(e)}
         ></AddForm>
         <RenderTable
+          column="ID"
           column1="Nome"
           column2="E-mail"
           column3="Ações"
