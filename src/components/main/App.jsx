@@ -10,13 +10,16 @@ import Logo from '../template/logo'
 import Footer from '../template/footer'
 import Nav from '../template/nav'
 
-export default (props) => (
-  <BrowserRouter>
-    <div className="app">
-      <Logo></Logo>
-      <Nav></Nav>
-      <Routes></Routes>
-      <Footer></Footer>
-    </div>
-  </BrowserRouter>
-)
+function App(props) {
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <Logo></Logo>
+        <Nav></Nav>
+        <Routes></Routes>
+        <Footer></Footer>
+      </div>
+    </BrowserRouter>
+  )
+}
+export default App

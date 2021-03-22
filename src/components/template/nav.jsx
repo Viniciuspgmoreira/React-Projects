@@ -1,9 +1,8 @@
 import './nav.css'
 import React from 'react'
 import NavItem from './nav-items'
-import { Link } from 'react-router-dom'
 
-export default (props) => {
+function Nav(props) {
   return (
     <aside className="menu-area">
       <nav className="menu">
@@ -13,3 +12,4 @@ export default (props) => {
     </aside>
   )
 }
+export default Nav
