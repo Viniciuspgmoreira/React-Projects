@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Main from '../template/main'
 import axios from 'axios'
 import AddForm from '../form/addForm'
+import RenderTable from '../table/table'
 
 const headerProps = {
   title: 'users',
@@ -56,12 +57,10 @@ export default class UserCrud extends Component {
 
   remove(user) {
     axios.delete(`${baseUrl}/${user.id}`).then((resp) => {
-      const list = this.state.list.filter((u) => u !== user)
+      const list = this.getUpdatedList(null)
       this.setState({ list })
     })
   }
-
-  renderForm() {}
 
   render() {
     return (
@@ -76,6 +75,12 @@ export default class UserCrud extends Component {
           onClickSave={(e) => this.save(e)}
           onClickClear={(e) => this.clear(e)}
         ></AddForm>
+        <RenderTable
+          column1="Nome"
+          column2="E-mail"
+          column3="Ações"
+          list={this.state.list}
+        ></RenderTable>
       </Main>
     )
   }
