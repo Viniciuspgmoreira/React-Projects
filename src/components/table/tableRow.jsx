@@ -1,6 +1,7 @@
 import React from 'react'
+import { deleteNotification } from '../toasty/toasty'
 
-function TableRow(props, callback) {
+function TableRow(props) {
   return props.list.map((user) => {
     return (
       <tr key={user.id}>
@@ -13,7 +14,10 @@ function TableRow(props, callback) {
           </button>
           <button
             className="btn btn-danger ml-2"
-            onClick={() => props.remove(user)}
+            onClick={() => {
+              props.remove(user)
+              deleteNotification(`${user.name} deletado com sucesso`)
+            }}
           >
             <i className="fa fa-pencil"></i>
           </button>

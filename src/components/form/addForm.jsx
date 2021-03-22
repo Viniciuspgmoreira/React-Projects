@@ -1,4 +1,6 @@
 import React from 'react'
+import verify from '../form/addFormVerification'
+import { deleteNotification } from '../toasty/toasty'
 
 function AddForm(props) {
   return (
@@ -14,6 +16,7 @@ function AddForm(props) {
               value={props.valueName}
               onChange={props.onChangeName}
               placeholder={props.placeholderName}
+              required
             ></input>
           </div>
         </div>
@@ -21,12 +24,13 @@ function AddForm(props) {
           <div className="form-group">
             <label>Email</label>
             <input
-              type="text"
+              type="email"
               className="form-control"
               name="email"
               value={props.valueEmail}
               onChange={props.onChangeEmail}
               placeholder={props.placeholderEmail}
+              required
             ></input>
           </div>
         </div>
@@ -34,7 +38,12 @@ function AddForm(props) {
       <hr></hr>
       <div className="row">
         <div className="col-12 d-flex justify-content-end">
-          <button className="btn btn-primary" onClick={props.onClickSave}>
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              verify(props) === true ? props.onClickSave() : null
+            }
+          >
             Salvar
           </button>
           <button

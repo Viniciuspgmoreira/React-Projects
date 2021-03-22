@@ -3,7 +3,7 @@ import TableRow from '../table/tableRow'
 
 function RenderTable(props) {
   return (
-    <table className="table mt-4">
+    <table className="table mt-4 table-striped table-bordered light-grey table-dark">
       <thead>
         <tr>
           <th>{props.column}</th>

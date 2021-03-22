@@ -45,6 +45,10 @@ export default class UserCrud extends Component {
     })
   }
 
+  saveVerification() {
+    console.log(this.state.user.length)
+  }
+
   getUpdatedList(user, add = true) {
     const list = this.state.list.filter((u) => u.id !== user.id)
     if (add) list.unshift(user)
@@ -80,6 +84,7 @@ export default class UserCrud extends Component {
           placeholderEmail="Digite o E-mail..."
           onClickSave={(e) => this.save(e)}
           onClickClear={(e) => this.clear(e)}
+          saveVerification={(e) => this.save(e)}
         ></AddForm>
         <RenderTable
           column="ID"
