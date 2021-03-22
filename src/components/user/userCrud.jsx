@@ -16,6 +16,12 @@ const initialState = {
   list: [],
 }
 export default class UserCrud extends Component {
+  constructor(props) {
+    super(props)
+    this.load = this.load.bind(this)
+    this.remove = this.remove.bind(this)
+  }
+
   state = { ...initialState }
 
   componentWillMount() {
@@ -39,9 +45,9 @@ export default class UserCrud extends Component {
     })
   }
 
-  getUpdatedList(user) {
+  getUpdatedList(user, add = true) {
     const list = this.state.list.filter((u) => u.id !== user.id)
-    if (user) list.unshift(user)
+    if (add) list.unshift(user)
     return list
   }
 
@@ -57,7 +63,7 @@ export default class UserCrud extends Component {
 
   remove(user) {
     axios.delete(`${baseUrl}/${user.id}`).then((resp) => {
-      const list = this.getUpdatedList(null)
+      const list = this.getUpdatedList(user, false)
       this.setState({ list })
     })
   }
@@ -80,6 +86,8 @@ export default class UserCrud extends Component {
           column2="E-mail"
           column3="Ações"
           list={this.state.list}
+          load={this.load}
+          remove={this.remove}
         ></RenderTable>
       </Main>
     )

@@ -1,18 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Arthur Oliveira",
-      "email": "aoliveira@cod3r.com.br"
-    },
-    {
       "id": 2,
       "name": "Ricardo Amaral",
       "email": "ricardoamaral@gmail.com"
     },
     {
-      "name": "TesteNome",
-      "email": "TesteEmail@email.com",
+      "name": "Vinicius Moreira",
+      "email": "viniciuspgmoreira@gmail.com",
       "id": 3
     }
   ]

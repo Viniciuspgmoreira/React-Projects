@@ -12,7 +12,11 @@ function RenderTable(props) {
         </tr>
       </thead>
       <tbody>
-        <TableRow list={props.list}></TableRow>
+        <TableRow
+          load={props.load}
+          remove={props.remove}
+          list={props.list}
+        ></TableRow>
       </tbody>
     </table>
   )
