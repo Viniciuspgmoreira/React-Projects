@@ -52,3 +52,12 @@ video {
 #divLogo {
   margin-top: 43px;
 }
+
+@media (max-width: 576px) {
+  aside.logo video {
+    width: 350px;
+  }
+  video {
+    left: -10px;
+  }
+}
