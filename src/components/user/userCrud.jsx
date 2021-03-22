@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Main from '../template/main'
 import axios from 'axios'
+import AddForm from '../form/addForm'
 
 const headerProps = {
   title: 'users',
@@ -10,7 +11,7 @@ const headerProps = {
 
 const baseUrl = 'http://localhost:3001/users'
 const initialState = {
-  user: { nome: '', email: '' },
+  user: { name: '', email: '' },
   list: [],
 }
 export default class UserCrud extends Component {
@@ -43,7 +44,22 @@ export default class UserCrud extends Component {
     this.setState({ user })
   }
 
+  renderForm() {}
+
   render() {
-    return <Main {...headerProps}>Usuário</Main>
+    return (
+      <Main {...headerProps}>
+        <AddForm
+          valueName={this.state.user.name}
+          onChangeName={(e) => this.updateField(e)}
+          onChangeEmail={(e) => this.updateField(e)}
+          placeholderName="Digite o Nome..."
+          valueEmail={this.state.user.email}
+          placeholderEmail="Digite o E-mail..."
+          onClickSave={(e) => this.save(e)}
+          onClickClear={(e) => this.clear(e)}
+        ></AddForm>
+      </Main>
+    )
   }
 }
